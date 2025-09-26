@@ -27,7 +27,7 @@ public class Utilities {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String formattedDate = currentDate.format(formatter);
-        logger.info("Current Date: ", formattedDate);
+        logger.info("Current Date: "+ formattedDate);
         return formattedDate;
 
     }
