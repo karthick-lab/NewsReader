@@ -2,7 +2,7 @@ name: Update Excel File
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every minute
+    - cron: '0 6 * * *'  # Runs daily at 11:30 AM IST
   workflow_dispatch:       # Allows manual trigger
 
 jobs:
