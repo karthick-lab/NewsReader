@@ -21,6 +21,7 @@ public class GoldStepDefenition {
 
     public static WebDriver driver;
     String goldprice;
+    String sharenews;
 
     @Given("the user opens the browser")
     public void theUserOpensTheBrowser() {
@@ -42,6 +43,41 @@ public class GoldStepDefenition {
 
 
     }
+
+    @When("the user fetches the Share news")
+    public void theUserFetchesTheShareNews() throws InterruptedException {
+        driver.get("https://gemini.google.com/app?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&utm_source=sem&utm_source=google&utm_medium=paid-media&utm_medium=cpc&utm_campaign=bkws&utm_campaign=2024enIN_gemfeb&pt=9008&mt=8&ct=p-growth-sem-bkws&gclsrc=aw.ds&gad_source=1&gad_campaignid=20357620749&gbraid=0AAAAApk5BhknX6vJH7_A-go-w5UE4qpAk&gclid=CjwKCAjwpOfHBhAxEiwAm1SwEnPIiy_bFQwjVaZMmeSq8EjeeHZnlYCah9u2vl0k4qzokTfxTRVCcRoC7tcQAvD_BwE");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
+        driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top 5 corporate news today Indian stocks");
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@class='mat-mdc-tooltip-trigger send-button-container ng-tns-c2606707226-5 inner ng-star-inserted visible']")).click();
+        Thread.sleep(120000);
+
+        try {
+            WebElement element2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")));
+            sharenews = driver.findElement(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")).getText();
+        }
+        catch(Exception e1)
+        {
+            driver.findElement(By.xpath("//*[@class='mat-mdc-tooltip-trigger send-button-container ng-tns-c2606707226-5 inner ng-star-inserted visible']")).click();
+            WebElement element3 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
+            driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top 5 corporate news today Indian stocks");
+            Thread.sleep(5000);
+            try {
+                WebElement element2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")));
+                sharenews = driver.findElement(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")).getText();
+            }
+            catch (Exception e2)
+            {
+                sharenews="unable to fetch the share price today";
+            }
+        }
+        Utilities.logger.info("Share News: {}", sharenews);
+        System.out.println(sharenews);
+
+    }
+
     @Then("the user writes the Gold price")
     public void theUserWritesTheGoldPrice() {
 
@@ -51,6 +87,19 @@ public class GoldStepDefenition {
         data.add(goldprice);
 
         Utilities.appendToExcel("src/test/resources/Data/GoldData.xlsx","Sheet1", data);
+
+
+    }
+
+    @Then("the user writes the Share news")
+    public void theUserWritesTheShareNews() {
+
+        List data = new ArrayList<>();
+
+        data.add(Utilities.currentDate());
+        data.add(sharenews);
+
+        Utilities.appendToExcel("src/test/resources/Data/StockNews.xlsx","Sheet1", data);
 
 
     }
