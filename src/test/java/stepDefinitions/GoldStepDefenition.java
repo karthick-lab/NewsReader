@@ -66,7 +66,14 @@ public class GoldStepDefenition {
         }
         catch(Exception e1)
         {
-            driver.findElement(By.xpath("//*[contains(@class,'mat-mdc-tooltip-trigger send-button-container')]")).click();
+            e1.printStackTrace();
+            try {
+                driver.findElement(By.xpath("//*[contains(@class,'mat-mdc-tooltip-trigger send-button-container')]")).click();
+            }
+            catch(Exception e)
+            {
+                Utilities.logger.info("Unable to click send in gemini");
+            }
             WebElement element3 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
             driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top 5 corporate news today Indian stocks");
             Thread.sleep(5000);
