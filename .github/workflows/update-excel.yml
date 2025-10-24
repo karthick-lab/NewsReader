@@ -2,14 +2,15 @@ name: Update Excel File
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Runs every minute
-  workflow_dispatch:       # Allows manual trigger
+    - cron: '0 6 * * *'  # Runs daily at 11:30 AM IST
+  workflow_dispatch:      # Allows manual trigger
 
 jobs:
   run-tests:
     runs-on: windows-latest
+
     steps:
-      - name: Checkout code from master branch
+      - name: Checkout code from main branch
         uses: actions/checkout@v4
         with:
           ref: main
@@ -20,15 +21,29 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: '140.0.7339.127'  # Match ChromeDriver version
+
       - name: Run Maven tests
         run: mvn test
+        env:
+          HEADLESS: false
 
       - name: Commit updated Excel file
         run: |
           git config user.name "karthick-lab"
           git config user.email "karthick.shayee@gmail.com"
           git add src/test/resources/Data/GoldData.xlsx
-          git commit -m "Update Excel file from GitHub Actions" || echo "No changes to commit"
+          git commit -m "Update Excel file from GitHub Actions on $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload screenshot on failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: failure-screenshot
+          path: target/screenshots/error.png
