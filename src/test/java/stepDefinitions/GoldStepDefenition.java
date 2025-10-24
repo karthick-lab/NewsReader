@@ -51,7 +51,7 @@ public class GoldStepDefenition {
         WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
         driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top 5 corporate news today Indian stocks");
         Thread.sleep(20000);
-        driver.findElement(By.xpath("//*[@class='mat-mdc-tooltip-trigger send-button-container ng-tns-c2606707226-5 inner ng-star-inserted visible']")).click();
+        driver.findElement(By.xpath("//*[contains(@class,'mat-mdc-tooltip-trigger send-button-container')]")).click();
         Thread.sleep(120000);
 
         try {
@@ -60,7 +60,7 @@ public class GoldStepDefenition {
         }
         catch(Exception e1)
         {
-            driver.findElement(By.xpath("//*[@class='mat-mdc-tooltip-trigger send-button-container ng-tns-c2606707226-5 inner ng-star-inserted visible']")).click();
+            driver.findElement(By.xpath("//*[contains(@class,'mat-mdc-tooltip-trigger send-button-container')]")).click();
             WebElement element3 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
             driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top 5 corporate news today Indian stocks");
             Thread.sleep(5000);
