@@ -63,6 +63,7 @@ public class GoldStepDefenition {
         try {
             WebElement element2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")));
             sharenews = driver.findElement(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")).getText();
+            System.out.println("share news is "+sharenews);
         }
         catch(Exception e1)
         {
