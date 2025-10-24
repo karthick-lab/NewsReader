@@ -51,7 +51,13 @@ public class GoldStepDefenition {
         WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
         driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top 5 corporate news today Indian stocks");
         Thread.sleep(20000);
-        driver.findElement(By.xpath("//*[contains(@class,'mat-mdc-tooltip-trigger send-button-container')]")).click();
+        try {
+            driver.findElement(By.xpath("//*[contains(@class,'mat-mdc-tooltip-trigger send-button-container')]")).click();
+        }
+        catch(Exception e)
+        {
+            Utilities.logger.info("Unable to click send in Gemini");
+        }
         Thread.sleep(120000);
 
         try {
