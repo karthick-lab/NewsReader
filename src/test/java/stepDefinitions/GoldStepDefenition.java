@@ -48,7 +48,7 @@ public class GoldStepDefenition {
     public void theUserFetchesTheShareNews() throws InterruptedException {
         driver.get("https://gemini.google.com/app?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&utm_source=sem&utm_source=google&utm_medium=paid-media&utm_medium=cpc&utm_campaign=bkws&utm_campaign=2024enIN_gemfeb&pt=9008&mt=8&ct=p-growth-sem-bkws&gclsrc=aw.ds&gad_source=1&gad_campaignid=20357620749&gbraid=0AAAAApk5BhknX6vJH7_A-go-w5UE4qpAk&gclid=CjwKCAjwpOfHBhAxEiwAm1SwEnPIiy_bFQwjVaZMmeSq8EjeeHZnlYCah9u2vl0k4qzokTfxTRVCcRoC7tcQAvD_BwE");
         System.out.println("before entering promt");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(300));
         WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
         driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top 5 corporate news today Indian stocks");
         Thread.sleep(20000);
