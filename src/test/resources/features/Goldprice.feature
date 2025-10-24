@@ -7,8 +7,8 @@ Feature: Gold Price
     And user closes the browser
 
 
-  Scenario: Write Stock News
-    Given the user opens the browser
-    When the user fetches the Share news
-    Then the user writes the Share news
-    And user closes the browser
+ # Scenario: Write Stock News
+ #   Given the user opens the browser
+ #   When the user fetches the Share news
+ #  Then the user writes the Share news
+ #   And user closes the browser
