@@ -43,7 +43,7 @@ jobs:
 
       - name: Upload screenshot on failure
         if: failure()
-        uses: uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: failure-screenshot
           path: target/screenshots/error.png
