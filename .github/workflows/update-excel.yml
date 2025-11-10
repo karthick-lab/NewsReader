@@ -20,6 +20,23 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Uninstall existing Chrome
+        run: choco uninstall googlechrome -y
+
+      - name: Install Chrome v140
+        run: choco install googlechrome --version=140.0.0 -y
+
+      - name: Install ChromeDriver v140
+        run: choco install chromedriver --version=140.0.0 -y
+
+      - name: Set CHROME_BIN environment variable
+        run: echo "CHROME_BIN=C:\Program Files\Google\Chrome\Application\chrome.exe" >> $GITHUB_ENV
+
+      - name: Verify Chrome and ChromeDriver versions
+        run: |
+          "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
+          chromedriver --version
+
       - name: Run Maven tests
         run: mvn test
 
