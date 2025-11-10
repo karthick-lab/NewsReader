@@ -43,7 +43,9 @@ jobs:
           & "$env:CHROMEDRIVER_PATH" --version
 
       - name: Run Maven tests with ChromeDriver path
-        run: mvn test -Dsurefire.argLine="-Dwebdriver.chrome.driver=${{ env.CHROMEDRIVER_PATH }}"
+        run: |
+          $env:MAVEN_OPTS="-Dwebdriver.chrome.driver=$env:CHROMEDRIVER_PATH"
+          mvn test
 
       - name: Commit updated Excel file
         run: |
