@@ -27,7 +27,12 @@ public class GoldStepDefenition {
     public void theUserOpensTheBrowser() {
 
 
-        System.setProperty("webdriver.chrome.driver", System.getenv("CHROMEDRIVER_PATH"));
+        String driverPath = System.getenv("CHROMEDRIVER_PATH");
+        if (driverPath == null || driverPath.isEmpty()) {
+            throw new RuntimeException("CHROMEDRIVER_PATH environment variable is not set.");
+        }
+        System.setProperty("webdriver.chrome.driver", driverPath);
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
