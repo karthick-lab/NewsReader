@@ -21,11 +21,12 @@ jobs:
           java-version: '17'
 
       - name: Detect Chrome version
-        id: chrome-version
+        id: detect-chrome
         run: |
-          $version = & "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
+          $chromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+          $version = & $chromePath --version
           echo "Chrome version: $version"
-          $major = $version -replace '[^\d]', '' -split '' | Select-Object -First 3 -join ''
+          $major = ($version -replace '[^\d]', '') -split '' | Select-Object -First 3 -join ''
           echo "CHROME_MAJOR=$major" >> $env:GITHUB_ENV
 
       - name: Download matching ChromeDriver
