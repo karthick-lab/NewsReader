@@ -35,13 +35,13 @@ jobs:
           $driverVersion = Get-Content latest.txt
           echo "ChromeDriver version: $driverVersion"
           Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/$driverVersion/chromedriver_win32.zip" -OutFile driver.zip
-          Expand-Archive driver.zip -DestinationPath $env:RUNNER_TEMP\chromedriver
+          Expand-Archive -Force driver.zip -DestinationPath "$env:RUNNER_TEMP\chromedriver"
           echo "$env:RUNNER_TEMP\chromedriver" >> $env:GITHUB_PATH
 
-      - name: Verify versions
+      - name: Verify Chrome and ChromeDriver versions
         run: |
           "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
-          $env:RUNNER_TEMP\chromedriver\chromedriver.exe --version
+          & "$env:RUNNER_TEMP\chromedriver\chromedriver.exe" --version
 
       - name: Run Maven tests
         run: mvn test
