@@ -3,7 +3,7 @@ name: Update Excel File
 on:
   schedule:
     - cron: '0 6 * * *'  # Runs daily at 11:30 AM IST
-  workflow_dispatch:       # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
   run-tests:
@@ -20,22 +20,27 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Uninstall existing Chrome
-        run: choco uninstall googlechrome -y
+      - name: Detect Chrome version
+        id: chrome-version
+        run: |
+          $version = & "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
+          echo "Chrome version: $version"
+          $major = $version -replace '[^\d]', '' -split '' | Select-Object -First 3 -join ''
+          echo "CHROME_MAJOR=$major" >> $env:GITHUB_ENV
 
-      - name: Install Chrome v140
-        run: choco install googlechrome --version=140.0.0 -y
+      - name: Download matching ChromeDriver
+        run: |
+          Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$env:CHROME_MAJOR" -OutFile latest.txt
+          $driverVersion = Get-Content latest.txt
+          echo "ChromeDriver version: $driverVersion"
+          Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/$driverVersion/chromedriver_win32.zip" -OutFile driver.zip
+          Expand-Archive driver.zip -DestinationPath $env:RUNNER_TEMP\chromedriver
+          echo "$env:RUNNER_TEMP\chromedriver" >> $env:GITHUB_PATH
 
-      - name: Install ChromeDriver v140
-        run: choco install chromedriver --version=140.0.0 -y
-
-      - name: Set CHROME_BIN environment variable
-        run: echo "CHROME_BIN=C:\Program Files\Google\Chrome\Application\chrome.exe" >> $GITHUB_ENV
-
-      - name: Verify Chrome and ChromeDriver versions
+      - name: Verify versions
         run: |
           "C:\Program Files\Google\Chrome\Application\chrome.exe" --version
-          chromedriver --version
+          $env:RUNNER_TEMP\chromedriver\chromedriver.exe --version
 
       - name: Run Maven tests
         run: mvn test
@@ -45,7 +50,7 @@ jobs:
           git config user.name "karthick-lab"
           git config user.email "karthick.shayee@gmail.com"
           git add src/test/resources/Data/GoldData.xlsx
-          git commit -m "Update Excel file from GitHub Actions on $(date '+%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
+          git commit -m "Update Excel file from GitHub Actions on $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
