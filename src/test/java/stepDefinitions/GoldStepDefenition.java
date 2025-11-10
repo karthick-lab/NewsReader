@@ -26,8 +26,8 @@ public class GoldStepDefenition {
     @Given("the user opens the browser")
     public void theUserOpensTheBrowser() {
 
-        String driverPath = System.getProperty("user.dir") + "/drivers/chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", driverPath);
+        
+        System.setProperty("webdriver.chrome.driver", System.getenv("RUNNER_TEMP") + "/chromedriver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
