@@ -42,10 +42,8 @@ jobs:
         run: |
           & "$env:CHROMEDRIVER_PATH" --version
 
-      - name: Run Maven tests
-        env:
-          WEBDRIVER_CHROME_DRIVER: ${{ env.CHROMEDRIVER_PATH }}
-        run: mvn test
+      - name: Run Maven tests with ChromeDriver path
+        run: mvn test -Dwebdriver.chrome.driver="${{ env.CHROMEDRIVER_PATH }}"
 
       - name: Commit updated Excel file
         run: |
