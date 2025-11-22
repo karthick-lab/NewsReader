@@ -4,8 +4,6 @@
 [INFO] Building GoldPriceandStockNews 1.0-SNAPSHOT
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
-Downloading from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/maven-metadata.xml
-Progress (1): 3.0 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/io/cucumber/messages/maven-metadata.xml (3.0 kB at 4.9 kB/s)
 [INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ GoldPriceandStockNews ---
 [INFO] skip non existing resourceDirectory C:\Users\admin\Desktop\Javaproject\GoldPriceandStockNews1\NewsReader\src\main\resources
@@ -28,9 +26,9 @@ Progress (1): 3.0 kB                    Downloaded from central: https://repo.
 [INFO] Running stepDefinitions.TestRunner
 
 Scenario: Write Stock News             # src/test/resources/features/Goldprice.feature:10
-Nov 10, 2025 2:00:13 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+Nov 22, 2025 2:00:09 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 140
-Nov 10, 2025 2:00:13 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+Nov 22, 2025 2:00:09 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 140.0.7339.129. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.15.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
   Given the user opens the browser     # stepDefinitions.GoldStepDefenition.theUserOpensTheBrowser()
 before entering promt
@@ -38,62 +36,74 @@ after entering promt
 prompt sent
 before getting share news
 after getting share news
-share news is It is currently Monday, November 10, 2025.
-Based on the latest available market information and corporate announcements for Indian stocks today and over the weekend, here are the top 5 corporate news headlines:
-? Top 5 Corporate News for Indian Stocks (November 10, 2025)
-Lenskart's Soft Stock Market Debut:
-Shares of the eyewear retailer Lenskart debuted on the exchanges today (November 10) with a soft listing, opening at a slight discount to its IPO price amid valuation concerns despite a healthy subscription.
-The stock traded lower on listing, though it saw an intraday surge. This listing is a key market event today.
-Trent Q2 Results and Stock Reaction:
-Trent Ltd (Tata Group retail company) reported an 11% year-on-year (YoY) growth in consolidated profit for the September quarter (Q2) at ?377 crore, with revenue up 16% YoY to ?4,818 crore.
-Despite the healthy numbers, the company's share price declined by over 6% intraday, as the market sentiment was likely expecting a stronger performance or reacted to the deceleration in revenue growth seen in the quarter.
-Sugar Stocks Surge on Export Quota Announcement:
-Shares of major Sugar manufacturers, including Balrampur Chini Mills, Triveni Engineering, and Dalmia Bharat Sugar, are surging (up 3-6%) following the government's announcement to permit the export of 1.5 million tonnes (MT) of sugar for the ongoing 2025-26 season.
-Bajaj Auto's Strong Q2 Earnings:
-Bajaj Auto reported a 23.7% rise in its second-quarter profit to ?2,480 crore, boosted primarily by higher exports of its motorcycles, which offset sluggish domestic demand. The results were announced on Friday.
-Adani Enterprises in Focus for JAL Acquisition Bid:
-Adani Enterprises Ltd (AEL) is likely to emerge as the highest bidder to acquire Jaiprakash Associates Ltd (JAL) through the insolvency process, as its offer terms are reportedly more favorable than Vedanta's.
-This potential acquisition keeps AEL in the news.
-Would you like me to look up the latest analyst recommendations for any of these specific stocks?
-2025-11-10 14:02:37 [main] INFO  Reusable.Utilities - Share News: It is currently Monday, November 10, 2025.
-Based on the latest available market information and corporate announcements for Indian stocks today and over the weekend, here are the top 5 corporate news headlines:
-? Top 5 Corporate News for Indian Stocks (November 10, 2025)
-Lenskart's Soft Stock Market Debut:
-Shares of the eyewear retailer Lenskart debuted on the exchanges today (November 10) with a soft listing, opening at a slight discount to its IPO price amid valuation concerns despite a healthy subscription.
-The stock traded lower on listing, though it saw an intraday surge. This listing is a key market event today.
-Trent Q2 Results and Stock Reaction:
-Trent Ltd (Tata Group retail company) reported an 11% year-on-year (YoY) growth in consolidated profit for the September quarter (Q2) at ?377 crore, with revenue up 16% YoY to ?4,818 crore.
-Despite the healthy numbers, the company's share price declined by over 6% intraday, as the market sentiment was likely expecting a stronger performance or reacted to the deceleration in revenue growth seen in the quarter.
-Sugar Stocks Surge on Export Quota Announcement:
-Shares of major Sugar manufacturers, including Balrampur Chini Mills, Triveni Engineering, and Dalmia Bharat Sugar, are surging (up 3-6%) following the government's announcement to permit the export of 1.5 million tonnes (MT) of sugar for the ongoing 2025-26 season.
-Bajaj Auto's Strong Q2 Earnings:
-Bajaj Auto reported a 23.7% rise in its second-quarter profit to ?2,480 crore, boosted primarily by higher exports of its motorcycles, which offset sluggish domestic demand. The results were announced on Friday.
-Adani Enterprises in Focus for JAL Acquisition Bid:
-Adani Enterprises Ltd (AEL) is likely to emerge as the highest bidder to acquire Jaiprakash Associates Ltd (JAL) through the insolvency process, as its offer terms are reportedly more favorable than Vedanta's.
-This potential acquisition keeps AEL in the news.
-Would you like me to look up the latest analyst recommendations for any of these specific stocks?
-It is currently Monday, November 10, 2025.
-Based on the latest available market information and corporate announcements for Indian stocks today and over the weekend, here are the top 5 corporate news headlines:
-? Top 5 Corporate News for Indian Stocks (November 10, 2025)
-Lenskart's Soft Stock Market Debut:
-Shares of the eyewear retailer Lenskart debuted on the exchanges today (November 10) with a soft listing, opening at a slight discount to its IPO price amid valuation concerns despite a healthy subscription.
-The stock traded lower on listing, though it saw an intraday surge. This listing is a key market event today.
-Trent Q2 Results and Stock Reaction:
-Trent Ltd (Tata Group retail company) reported an 11% year-on-year (YoY) growth in consolidated profit for the September quarter (Q2) at ?377 crore, with revenue up 16% YoY to ?4,818 crore.
-Despite the healthy numbers, the company's share price declined by over 6% intraday, as the market sentiment was likely expecting a stronger performance or reacted to the deceleration in revenue growth seen in the quarter.
-Sugar Stocks Surge on Export Quota Announcement:
-Shares of major Sugar manufacturers, including Balrampur Chini Mills, Triveni Engineering, and Dalmia Bharat Sugar, are surging (up 3-6%) following the government's announcement to permit the export of 1.5 million tonnes (MT) of sugar for the ongoing 2025-26 season.
-Bajaj Auto's Strong Q2 Earnings:
-Bajaj Auto reported a 23.7% rise in its second-quarter profit to ?2,480 crore, boosted primarily by higher exports of its motorcycles, which offset sluggish domestic demand. The results were announced on Friday.
-Adani Enterprises in Focus for JAL Acquisition Bid:
-Adani Enterprises Ltd (AEL) is likely to emerge as the highest bidder to acquire Jaiprakash Associates Ltd (JAL) through the insolvency process, as its offer terms are reportedly more favorable than Vedanta's.
-This potential acquisition keeps AEL in the news.
-Would you like me to look up the latest analyst recommendations for any of these specific stocks?
+share news is ? Corporate News for Indian Stocks (November 22, 2025)
+As today is a Saturday, major announcements from the stock exchanges (BSE/NSE) are typically from the preceding trading day, which was Friday, November 21, 2025.
+Here are the Top 5 Corporate News and Market Highlights from Friday, which are likely to influence market sentiment:
+1. ? TCS and TPG Joint Venture
+News: Tata Consultancy Services (TCS) and private equity firm TPG Terabyte Bidco will form a joint venture to develop AI data centers.
+Impact: The partners plan to invest up to ?18,000 crore (approx.
+$2.03 billion) in equity over the next few years, targeting the rapidly growing AI and cloud infrastructure space. This is a significant strategic move for TCS.
+2. ? Kotak Mahindra Bank Stock Split
+News: The Board of Directors of Kotak Mahindra Bank approved a stock split in the ratio of 1:5 (one equity share of ?5 face value split into five equity shares of ?1 face value).
+Impact: A stock split typically makes shares more affordable for retail investors and can increase liquidity, often leading to a short-term positive reaction in the market.
+3. ? Reliance Industries (RIL) Crude Import Halt
+News: Reliance Industries announced that it has halted the import of Russian crude oil for processing at its export-oriented Jamnagar refinery to comply with European Union sanctions.
+Impact: The company stated that exports from this refinery will be entirely from non-Russian oil starting December 1. This strategic realignment of its supply chain is a significant business development due to geopolitical factors.
+4. ?? IndiGo (InterGlobe Aviation) Investment Plan
+News: IndiGo approved a ?7,294 crore investment in its arm, InterGlobe Aviation Fin Services, to acquire aircraft assets.
+Impact: This large capital commitment highlights the company's aggressive fleet expansion and growth strategy in the aviation sector.
+5. ? Market Movement & Sectoral Performance
+News: The Indian stock market benchmarks, Sensex and Nifty 50, closed lower on Friday, ending a two-day winning streak.
+Reasons: Profit-booking after hitting a 52-week high, weak global cues, growing concerns over the India-US trade deal, and a fall in heavyweight banking stocks (HDFC Bank, ICICI Bank, SBI).
+Top Losers: Metals and banking stocks, including JSW Steel, Hindalco, Tata Steel.
+Would you like me to search for any specific company's latest corporate announcements or news?
+2025-11-22 14:02:34 [main] INFO  Reusable.Utilities - Share News: ? Corporate News for Indian Stocks (November 22, 2025)
+As today is a Saturday, major announcements from the stock exchanges (BSE/NSE) are typically from the preceding trading day, which was Friday, November 21, 2025.
+Here are the Top 5 Corporate News and Market Highlights from Friday, which are likely to influence market sentiment:
+1. ? TCS and TPG Joint Venture
+News: Tata Consultancy Services (TCS) and private equity firm TPG Terabyte Bidco will form a joint venture to develop AI data centers.
+Impact: The partners plan to invest up to ?18,000 crore (approx.
+$2.03 billion) in equity over the next few years, targeting the rapidly growing AI and cloud infrastructure space. This is a significant strategic move for TCS.
+2. ? Kotak Mahindra Bank Stock Split
+News: The Board of Directors of Kotak Mahindra Bank approved a stock split in the ratio of 1:5 (one equity share of ?5 face value split into five equity shares of ?1 face value).
+Impact: A stock split typically makes shares more affordable for retail investors and can increase liquidity, often leading to a short-term positive reaction in the market.
+3. ? Reliance Industries (RIL) Crude Import Halt
+News: Reliance Industries announced that it has halted the import of Russian crude oil for processing at its export-oriented Jamnagar refinery to comply with European Union sanctions.
+Impact: The company stated that exports from this refinery will be entirely from non-Russian oil starting December 1. This strategic realignment of its supply chain is a significant business development due to geopolitical factors.
+4. ?? IndiGo (InterGlobe Aviation) Investment Plan
+News: IndiGo approved a ?7,294 crore investment in its arm, InterGlobe Aviation Fin Services, to acquire aircraft assets.
+Impact: This large capital commitment highlights the company's aggressive fleet expansion and growth strategy in the aviation sector.
+5. ? Market Movement & Sectoral Performance
+News: The Indian stock market benchmarks, Sensex and Nifty 50, closed lower on Friday, ending a two-day winning streak.
+Reasons: Profit-booking after hitting a 52-week high, weak global cues, growing concerns over the India-US trade deal, and a fall in heavyweight banking stocks (HDFC Bank, ICICI Bank, SBI).
+Top Losers: Metals and banking stocks, including JSW Steel, Hindalco, Tata Steel.
+Would you like me to search for any specific company's latest corporate announcements or news?
+? Corporate News for Indian Stocks (November 22, 2025)
+As today is a Saturday, major announcements from the stock exchanges (BSE/NSE) are typically from the preceding trading day, which was Friday, November 21, 2025.
+Here are the Top 5 Corporate News and Market Highlights from Friday, which are likely to influence market sentiment:
+1. ? TCS and TPG Joint Venture
+News: Tata Consultancy Services (TCS) and private equity firm TPG Terabyte Bidco will form a joint venture to develop AI data centers.
+Impact: The partners plan to invest up to ?18,000 crore (approx.
+$2.03 billion) in equity over the next few years, targeting the rapidly growing AI and cloud infrastructure space. This is a significant strategic move for TCS.
+2. ? Kotak Mahindra Bank Stock Split
+News: The Board of Directors of Kotak Mahindra Bank approved a stock split in the ratio of 1:5 (one equity share of ?5 face value split into five equity shares of ?1 face value).
+Impact: A stock split typically makes shares more affordable for retail investors and can increase liquidity, often leading to a short-term positive reaction in the market.
+3. ? Reliance Industries (RIL) Crude Import Halt
+News: Reliance Industries announced that it has halted the import of Russian crude oil for processing at its export-oriented Jamnagar refinery to comply with European Union sanctions.
+Impact: The company stated that exports from this refinery will be entirely from non-Russian oil starting December 1. This strategic realignment of its supply chain is a significant business development due to geopolitical factors.
+4. ?? IndiGo (InterGlobe Aviation) Investment Plan
+News: IndiGo approved a ?7,294 crore investment in its arm, InterGlobe Aviation Fin Services, to acquire aircraft assets.
+Impact: This large capital commitment highlights the company's aggressive fleet expansion and growth strategy in the aviation sector.
+5. ? Market Movement & Sectoral Performance
+News: The Indian stock market benchmarks, Sensex and Nifty 50, closed lower on Friday, ending a two-day winning streak.
+Reasons: Profit-booking after hitting a 52-week high, weak global cues, growing concerns over the India-US trade deal, and a fall in heavyweight banking stocks (HDFC Bank, ICICI Bank, SBI).
+Top Losers: Metals and banking stocks, including JSW Steel, Hindalco, Tata Steel.
+Would you like me to search for any specific company's latest corporate announcements or news?
   When the user fetches the Share news # stepDefinitions.GoldStepDefenition.theUserFetchesTheShareNews()
-2025-11-10 14:02:37 [main] INFO  Reusable.Utilities - Current Date: 10-11-2025
+2025-11-22 14:02:34 [main] INFO  Reusable.Utilities - Current Date: 22-11-2025
   Then the user writes the Share news  # stepDefinitions.GoldStepDefenition.theUserWritesTheShareNews()
   And user closes the browser          # stepDefinitions.GoldStepDefenition.userClosesTheBrowser()
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 151.1 s -- in stepDefinitions.TestRunner
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 147.4 s -- in stepDefinitions.TestRunner
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -102,6 +112,6 @@ Would you like me to look up the latest analyst recommendations for any of these
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:36 min
-[INFO] Finished at: 2025-11-10T14:02:40+05:30
+[INFO] Total time:  02:31 min
+[INFO] Finished at: 2025-11-22T14:02:35+05:30
 [INFO] ------------------------------------------------------------------------
