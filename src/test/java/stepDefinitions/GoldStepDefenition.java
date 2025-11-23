@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import Reusable.ConfigLoader;
 import Reusable.Utilities;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -26,7 +27,8 @@ public class GoldStepDefenition {
     @Given("the user opens the browser")
     public void theUserOpensTheBrowser() {
 
-        String driverPath = System.getProperty("user.dir") + "/drivers/chromedriver.exe";
+        String driverPath = ConfigLoader.get("chromedriver.path");
+        System.out.println("driver path:"+ driverPath);
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -34,7 +36,7 @@ public class GoldStepDefenition {
     }
     @When("the user fetches the Gold price")
     public void theUserFetchesTheGoldPrice() {
-        driver.get("https://www.goodreturns.in/gold-rates/");
+        driver.get(ConfigLoader.get("gold.news.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gr_top_intro_content\"]/div/p[1]")));
 
@@ -46,7 +48,7 @@ public class GoldStepDefenition {
 
     @When("the user fetches the Share news")
     public void theUserFetchesTheShareNews() throws InterruptedException {
-        driver.get("https://gemini.google.com/app?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&utm_source=sem&utm_source=google&utm_medium=paid-media&utm_medium=cpc&utm_campaign=bkws&utm_campaign=2024enIN_gemfeb&pt=9008&mt=8&ct=p-growth-sem-bkws&gclsrc=aw.ds&gad_source=1&gad_campaignid=20357620749&gbraid=0AAAAApk5BhknX6vJH7_A-go-w5UE4qpAk&gclid=CjwKCAjwpOfHBhAxEiwAm1SwEnPIiy_bFQwjVaZMmeSq8EjeeHZnlYCah9u2vl0k4qzokTfxTRVCcRoC7tcQAvD_BwE");
+        driver.get(ConfigLoader.get("share.news.gemini"));
         System.out.println("before entering promt");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(300));
         WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
@@ -106,7 +108,11 @@ public class GoldStepDefenition {
         data.add(Utilities.currentDate());
         data.add(goldprice);
 
-        Utilities.appendToExcel("src/test/resources/Data/GoldData.xlsx","Sheet1", data);
+        Utilities.appendToExcel(
+                ConfigLoader.get("gold.data.path"),
+                ConfigLoader.get("gold.data.sheet"),
+                data
+        );
 
 
     }
@@ -119,7 +125,13 @@ public class GoldStepDefenition {
         data.add(Utilities.currentDate());
         data.add(sharenews);
 
-        Utilities.appendToExcel("src/test/resources/Data/StockNews.xlsx","Sheet1", data);
+        Utilities.appendToExcel(
+                ConfigLoader.get("stock.news.path"),
+                ConfigLoader.get("stock.news.sheet"),
+                data
+        );
+
+
 
 
     }
