@@ -11,7 +11,9 @@ public class JarRunner {
                 "--glue", "stepDefinitions",
                 "src/test/resources/features",
                 "--plugin", "pretty",
-                "--monochrome"
+                "--monochrome",
+                "classpath:features"
+
         };
 
         // Run Cucumber

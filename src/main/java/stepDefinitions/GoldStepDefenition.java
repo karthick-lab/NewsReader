@@ -11,8 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.apache.logging.log4j.Logger;
-
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -52,7 +50,7 @@ public class GoldStepDefenition {
         System.out.println("before entering promt");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(300));
         WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
-        driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top 5 corporate news today Indian stocks");
+        driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top "+ConfigLoader.get("number.of.share.news")+ " corporate news today Indian stocks and number each share news as 1. ,2.,3. etc");
         Thread.sleep(20000);
         System.out.println("after entering promt");
         try {
