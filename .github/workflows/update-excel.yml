@@ -20,6 +20,14 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+        # Install latest Chrome (you can pin to 145 if needed)
+      - name: Install Chrome
+        run: |
+          choco install googlechrome --version=145.0.0 -y
+          choco install chromedriver --version=145.0.0 -y
+          echo "Chrome and ChromeDriver installed"
+
+
       - name: Run Maven tests
         run: mvn test
 
