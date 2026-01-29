@@ -23,9 +23,19 @@ jobs:
         # Install latest Chrome (you can pin to 145 if needed)
       - name: Install Chrome
         run: |
-          choco install googlechrome --version=145.0.0 -y
-          choco install chromedriver --version=145.0.0 -y
-          echo "Chrome and ChromeDriver installed"
+          choco install googlechrome -y
+          choco install chromedriver -y
+
+      - name: Copy ChromeDriver to project path
+        shell: pwsh
+        run: |
+          $driverPath = (Get-ChildItem "C:\ProgramData\chocolatey\lib\chromedriver" -Recurse -Filter "chromedriver.exe" | Select-Object -First 1).FullName
+          $targetDir = "$(Get-Location)\Drivers\updated_driver"
+          New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
+          Copy-Item $driverPath "$targetDir\chromedriver.exe" -Force
+          Write-Host "Driver copied to $targetDir\chromedriver.exe"
+
+
 
 
       - name: Run Maven tests
