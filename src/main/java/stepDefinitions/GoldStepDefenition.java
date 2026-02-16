@@ -47,10 +47,13 @@ public class GoldStepDefenition {
     @When("the user fetches the Share news")
     public void theUserFetchesTheShareNews() throws InterruptedException {
         driver.get(ConfigLoader.get("share.news.gemini"));
+
+        String news=ConfigLoader.get("number.of.share.news");
+
         System.out.println("before entering promt");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(300));
         WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
-        driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top "+ConfigLoader.get("number.of.share.news")+ " corporate news today Indian stocks and number each share news as 1. ,2.,3. etc");
+        driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top "+news + "corporate news today Indian stocks");
         Thread.sleep(20000);
         System.out.println("after entering promt");
         try {
@@ -66,14 +69,20 @@ public class GoldStepDefenition {
 
         try {
             System.out.println("before getting share news");
-            WebElement element2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")));
-            sharenews = driver.findElement(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")).getText();
+            //WebElement element2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")));
+            //List <WebElement> responses=driver.findElements(By.xpath("//li"));
+
+            //for(WebElement response:responses)
+            //{
+            //    sharenews=sharenews+response.getText()+"/n";
+            //}
+            sharenews = driver.findElement(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color preserve-whitespaces-in-response']")).getText();
             System.out.println("after getting share news");
             System.out.println("share news is "+sharenews);
         }
         catch(Exception e1)
         {
-           e1.printStackTrace();
+            e1.printStackTrace();
             /*try {
                 driver.findElement(By.xpath("//*[contains(@class,'mat-mdc-tooltip-trigger send-button-container')]")).click();
             }

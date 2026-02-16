@@ -68,8 +68,14 @@ public class GoldStepDefenition {
 
         try {
             System.out.println("before getting share news");
-            WebElement element2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")));
-            sharenews = driver.findElement(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")).getText();
+            //WebElement element2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color']")));
+           //List <WebElement> responses=driver.findElements(By.xpath("//li"));
+
+           //for(WebElement response:responses)
+           //{
+           //    sharenews=sharenews+response.getText()+"/n";
+           //}
+            sharenews = driver.findElement(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color preserve-whitespaces-in-response']")).getText();
             System.out.println("after getting share news");
             System.out.println("share news is "+sharenews);
         }
