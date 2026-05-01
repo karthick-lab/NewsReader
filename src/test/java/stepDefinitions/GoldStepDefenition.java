@@ -38,10 +38,13 @@ public class GoldStepDefenition {
     public void theUserFetchesTheGoldPrice() {
         driver.get(ConfigLoader.get("gold.news.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gr_top_intro_content\"]/div/p[1]")));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gr_top_intro_content\"]//div//p[1]")));
 
-        goldprice=driver.findElement(By.xpath("//*[@id=\"gr_top_intro_content\"]/div/p[1]")).getText();
+        goldprice=driver.findElement(By.xpath("//*[@id=\"gr_top_intro_content\"]//div//p[1]")).getText();
+        System.out.println(goldprice);
         Utilities.logger.info("Gold Price: {}", goldprice);
+
+
 
 
     }

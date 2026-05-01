@@ -36,9 +36,10 @@ public class GoldStepDefenition {
     public void theUserFetchesTheGoldPrice() {
         driver.get(ConfigLoader.get("gold.news.url"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gr_top_intro_content\"]/div/p[1]")));
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ConfigLoader.get("get.price.details.commodity"))));
 
-        goldprice=driver.findElement(By.xpath("//*[@id=\"gr_top_intro_content\"]/div/p[1]")).getText();
+        goldprice=driver.findElement(By.xpath(ConfigLoader.get("get.price.details.commodity"))).getText().replaceAll("₹ ","₹");
+        System.out.println(goldprice);
         Utilities.logger.info("Gold Price: {}", goldprice);
 
 
@@ -52,12 +53,12 @@ public class GoldStepDefenition {
 
         System.out.println("before entering promt");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(300));
-        WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")));
-        driver.findElement(By.xpath("//*[@class='ql-editor ql-blank textarea new-input-ui']")).sendKeys("top "+news + "corporate news today Indian stocks");
+        WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ConfigLoader.get("gemini.prompt.textbox"))));
+        driver.findElement(By.xpath(ConfigLoader.get("gemini.prompt.textbox"))).sendKeys(ConfigLoader.get("gemini.prompt"));
         Thread.sleep(20000);
         System.out.println("after entering promt");
         try {
-            driver.findElement(By.xpath("//*[contains(@class,'mat-mdc-tooltip-trigger send-button-container')]")).click();
+            driver.findElement(By.xpath(ConfigLoader.get("gemini.prompt.send.button"))).click();
             System.out.println("prompt sent");
         }
         catch(Exception e)
@@ -76,7 +77,7 @@ public class GoldStepDefenition {
             //{
             //    sharenews=sharenews+response.getText()+"/n";
             //}
-            sharenews = driver.findElement(By.xpath("//*[@class='markdown markdown-main-panel enable-updated-hr-color preserve-whitespaces-in-response']")).getText();
+            sharenews = driver.findElement(By.xpath(ConfigLoader.get("gemini.response"))).getText();
             System.out.println("after getting share news");
             System.out.println("share news is "+sharenews);
         }
